@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.fb37e116.css",
-    "main.js": "/static/js/main.228cc297.js",
-    "static/js/453.601a1c1f.chunk.js": "/static/js/453.601a1c1f.chunk.js",
-    "static/media/ChocolateFudgeImg.jpg": "/static/media/ChocolateFudgeImg.98cd27b5761b56c6fda1.jpg",
-    "static/media/DryFruitRoll.jpg": "/static/media/DryFruitRoll.3ce03f67f05e62abe30d.jpg",
-    "static/media/rose_chikki.jpg": "/static/media/rose_chikki.420a00e60ce3f7d1a763.jpg",
-    "static/media/stawberryFudge.jpg": "/static/media/stawberryFudge.8d026685037679baa33f.jpg",
-    "static/media/celebrationBox.jpg": "/static/media/celebrationBox.0b6eb61c058bfd356935.jpg",
-    "static/media/380.jpg": "/static/media/380.16adfc65897d658c7451.jpg",
-    "static/media/web-logo-3.png": "/static/media/web-logo-3.547376d5b6d3fbb87106.png",
-    "static/media/ShopImage.jpg": "/static/media/ShopImage.8b049ea5330e9caf1e01.jpg",
-    "static/media/3802.jpg": "/static/media/3802.5fe700e46f327cf4efd5.jpg",
-    "static/media/bg-header.jpg": "/static/media/bg-header.025cab5765eb1e767d25.jpg",
-    "static/media/paypal.png": "/static/media/paypal.94344ea2c93168bcb1b5.png",
-    "static/media/google-logo-NePEveMl.svg": "/static/media/google-logo-NePEveMl.6e369a9f55de51a66f35a38fc98a1b31.svg",
-    "index.html": "/index.html",
-    "static/media/microsoft-logo-BUXxQnXH.svg": "/static/media/microsoft-logo-BUXxQnXH.902f04943c5988fd36a1138a0270e17d.svg",
-    "main.fb37e116.css.map": "/static/css/main.fb37e116.css.map",
-    "main.228cc297.js.map": "/static/js/main.228cc297.js.map",
-    "453.601a1c1f.chunk.js.map": "/static/js/453.601a1c1f.chunk.js.map"
+    "main.css": "/maganlalchikki-react/static/css/main.fbc3e0a9.css",
+    "main.js": "/maganlalchikki-react/static/js/main.bdfd274e.js",
+    "static/js/453.601a1c1f.chunk.js": "/maganlalchikki-react/static/js/453.601a1c1f.chunk.js",
+    "static/media/ChocolateFudgeImg.jpg": "/maganlalchikki-react/static/media/ChocolateFudgeImg.98cd27b5761b56c6fda1.jpg",
+    "static/media/DryFruitRoll.jpg": "/maganlalchikki-react/static/media/DryFruitRoll.3ce03f67f05e62abe30d.jpg",
+    "static/media/rose_chikki.jpg": "/maganlalchikki-react/static/media/rose_chikki.420a00e60ce3f7d1a763.jpg",
+    "static/media/stawberryFudge.jpg": "/maganlalchikki-react/static/media/stawberryFudge.8d026685037679baa33f.jpg",
+    "static/media/celebrationBox.jpg": "/maganlalchikki-react/static/media/celebrationBox.0b6eb61c058bfd356935.jpg",
+    "static/media/380.jpg": "/maganlalchikki-react/static/media/380.16adfc65897d658c7451.jpg",
+    "static/media/web-logo-3.png": "/maganlalchikki-react/static/media/web-logo-3.547376d5b6d3fbb87106.png",
+    "static/media/ShopImage.jpg": "/maganlalchikki-react/static/media/ShopImage.8b049ea5330e9caf1e01.jpg",
+    "static/media/3802.jpg": "/maganlalchikki-react/static/media/3802.5fe700e46f327cf4efd5.jpg",
+    "static/media/bg-header.jpg": "/maganlalchikki-react/static/media/bg-header.025cab5765eb1e767d25.jpg",
+    "static/media/paypal.png": "/maganlalchikki-react/static/media/paypal.94344ea2c93168bcb1b5.png",
+    "index.html": "/maganlalchikki-react/index.html",
+    "static/media/google-logo-NePEveMl.svg": "/maganlalchikki-react/static/media/google-logo-NePEveMl.6e369a9f55de51a66f35a38fc98a1b31.svg",
+    "static/media/microsoft-logo-BUXxQnXH.svg": "/maganlalchikki-react/static/media/microsoft-logo-BUXxQnXH.902f04943c5988fd36a1138a0270e17d.svg",
+    "main.fbc3e0a9.css.map": "/maganlalchikki-react/static/css/main.fbc3e0a9.css.map",
+    "main.bdfd274e.js.map": "/maganlalchikki-react/static/js/main.bdfd274e.js.map",
+    "453.601a1c1f.chunk.js.map": "/maganlalchikki-react/static/js/453.601a1c1f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb37e116.css",
-    "static/js/main.228cc297.js"
+    "static/css/main.fbc3e0a9.css",
+    "static/js/main.bdfd274e.js"
   ]
 }
