@@ -1,0 +1,77 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.mDiv {
+  padding: 20px 100px;
+}
+
+.detailsDiv {
+  border: 2px solid #ff395c;
+  border-top: 10px solid #ff395c;
+  border-bottom: 10px solid #ff395c;
+  padding: 20px;
+  color: black;
+  width: 400px;
+  margin: 0px auto;
+  border-radius: 10px;
+}
+
+.userIcon {
+  font-size: 50px;
+  text-align: center;
+  color: #ff395c;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+.passwordInput {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  padding: 5px;
+  width: 100px;
+  outline: none;
+}
+
+.eyeIcon {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+strong {
+  margin-right: 10px;
+}
+
+.button {
+  padding: 10px 15px;
+  color: white;
+  background-color: #ff395c;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.button:hover {
+  background-color: #ff0d39;
+}
+
+.btnsDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 0px) and (max-width: 700px) {
+  .mDiv {
+    padding: 10px;
+  }
+
+  .detailsDiv {
+    width: 300px;
+  }
+}

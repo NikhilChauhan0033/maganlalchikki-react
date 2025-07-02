@@ -1,0 +1,6 @@
+1st step : create store file
+2ns step : wrap your app.js with provider / store [so we can access the all the things in our entire app]
+2rd step : create slice for each actions
+
+
+reducx is a library use for state management ,also use for share data globally ,also use for avoid prop-dirilling 

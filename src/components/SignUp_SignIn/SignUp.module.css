@@ -1,0 +1,130 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.pDiv {
+  background-color: white;
+  padding: 30px;
+  width: 100%;
+}
+
+.logo {
+  width: 15%;
+}
+
+.mDiv {
+  width: 300px;
+  margin: 0px auto;
+}
+
+.mDiv h2 {
+  margin-bottom: 25px;
+  text-align: center;
+}
+.mDiv label {
+  color: black;
+  font-size: 14px;
+  font-weight: 500;
+}
+.mDiv input {
+  padding: 10px 30px 10px 10px;
+  font-size: 12px;
+  width: 100%;
+  margin-bottom: 15px;
+  outline: none;
+}
+.mDiv input:hover {
+  outline: 2px solid #ff395c;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff395c;
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.button:hover {
+  background-color: #ff0d39;
+}
+
+.mDiv p {
+  font-size: 15px;
+  text-align: center;
+}
+
+.directLink {
+  border: 1px solid rgba(161, 161, 161, 0.993);
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 14px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.directLink:hover {
+  background-color: rgba(211, 211, 211, 0.702);
+}
+
+.directLink img {
+  width: 6%;
+  margin-right: 12px;
+}
+
+.successMessage {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.backShop{
+  font-weight: 600;
+  color: black;
+}
+
+.backShop:hover{
+  color: #ff395c;
+}
+@media screen and (min-width: 0px) and (max-width: 900px) {
+  .pDiv {
+    padding: 20px;
+  }
+  .logo {
+    /* display: none; */
+    width: 20%;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 700px) {
+  .pDiv {
+    padding: 20px 10px;
+  }
+
+  .mDiv {
+    width: 280px;
+  }
+  .logo {
+    /* display: none; */
+    width: 30%;
+    margin-bottom: 20px;
+  }
+}
