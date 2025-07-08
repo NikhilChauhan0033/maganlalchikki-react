@@ -41,25 +41,52 @@ const ShopProductsComponent = ({
   const categoryName = categoryNames[categoryId] || "Category";
 
   useEffect(() => {
-    window.scroll(0, 0);
-    console.log("Price Range:", priceRange); // Debugging line
-    setLoading(true);
-    getAPI(`product_list?category_id=${categoryId}`)
-      .then((response) => {
-        const filteredData = response.data.filter(
-          (item) => item.price >= priceRange.min && item.price <= priceRange.max
-        );
-        setData(filteredData);
-        setError(null);
-      })
-      .catch((error) => {
-        console.error(error);
-        setError("Failed to load products.");
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [categoryId, priceRange]);
+  window.scroll(0, 0);
+  console.log("Price Range:", priceRange);
+  setLoading(true);
+
+  getAPI(`product_list?category_id=${categoryId}`)
+    .then((response) => {
+      let raw = response.data;
+      let parsed = [];
+
+      if (typeof raw === "string") {
+        try {
+          const jsonEnd = raw.lastIndexOf("]");
+          const cleaned = raw.slice(0, jsonEnd + 1);
+          parsed = JSON.parse(cleaned);
+        } catch (e) {
+          console.error("❌ JSON Parse Failed:", e);
+          setError("Failed to parse product data.");
+          setData([]);
+          return;
+        }
+      } else if (Array.isArray(raw)) {
+        parsed = raw;
+      } else {
+        console.error("❌ Unexpected API response:", raw);
+        setError("Invalid product data format.");
+        setData([]);
+        return;
+      }
+
+      const filteredData = parsed.filter(
+        (item) => item.price >= priceRange.min && item.price <= priceRange.max
+      );
+
+      setData(filteredData);
+      setError(null);
+    })
+    .catch((error) => {
+      console.error("❌ API Error:", error);
+      setError("Failed to load products.");
+      setData([]);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+}, [categoryId, priceRange]);
+
 
   const handleSort = (option) => {
     setSortOption(option);

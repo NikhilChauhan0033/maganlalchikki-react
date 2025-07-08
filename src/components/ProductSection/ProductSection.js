@@ -22,47 +22,71 @@ const ProductSection = ({ apiId, img, buttonValue, activeFilter }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true); // Start loading
+    setLoading(true);
+    setError(null);
     getAPI(`product_list?category_id=${apiId}`)
       .then((response) => {
-        setData(response.data);
-        setError(null); // Clear previous errors (optional)
+        let raw = response.data;
+
+        if (typeof raw === "string") {
+          const jsonEnd = raw.lastIndexOf("]");
+          const cleaned = raw.slice(0, jsonEnd + 1);
+
+          try {
+            const parsed = JSON.parse(cleaned);
+            if (Array.isArray(parsed)) {
+              setData(parsed);
+            } else {
+              console.error("❌ Parsed JSON is not an array:", parsed);
+              setData([]);
+              setError("Parsed JSON is not an array");
+            }
+          } catch (err) {
+            console.error("❌ JSON parse error:", err);
+            setData([]);
+            setError("JSON parse error");
+          }
+        } else if (Array.isArray(raw)) {
+          setData(raw);
+        } else {
+          console.error("❌ Unexpected API response:", raw);
+          setData([]);
+          setError("Unexpected API response");
+        }
+        setLoading(false);
       })
-      .catch((error) => {
-        console.error(error);
-        setError("Failed to load products."); // Or use error.message
-      })
-      .finally(() => {
-        setLoading(false); // Stop loading in both success or error
+      .catch((err) => {
+        console.error("❌ API call failed:", err);
+        setData([]);
+        setError("API call failed");
+        setLoading(false);
       });
-
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
   }, [apiId]);
 
   // Latest Products: Moves odd id products first. Best Selling: Sorts by highest price. Top Rating: Sorts by lowest price.Featured Products: Moves even id products first.
 
-  const getFilteredProducts = (filteredData) => {
-    if (activeFilter === "Latest Product") {
-      return [
-        ...filteredData.filter((item) => item.id % 2 !== 0),
-        ...filteredData.filter((item) => item.id % 2 === 0),
-      ];
-    } else if (activeFilter === "Best Selling") {
-      return [...filteredData].sort((a, b) => b.price - a.price);
-    } else if (activeFilter === "Top Rating") {
-      return [...filteredData].sort((a, b) => a.price - b.price);
-    } else if (activeFilter === "Featured Products") {
-      return [
-        ...filteredData.filter((item) => item.id % 2 === 0),
-        ...filteredData.filter((item) => item.id % 2 !== 0),
-      ];
-    }
+const getFilteredProducts = (filteredData) => {
+  // Ensure filteredData is always an array
+  const data = Array.isArray(filteredData) ? filteredData : [];
 
-    return filteredData;
-  };
+  if (activeFilter === "Latest Product") {
+    return [
+      ...data.filter((item) => item.id % 2 !== 0),
+      ...data.filter((item) => item.id % 2 === 0),
+    ];
+  } else if (activeFilter === "Best Selling") {
+    return [...data].sort((a, b) => b.price - a.price);
+  } else if (activeFilter === "Top Rating") {
+    return [...data].sort((a, b) => a.price - b.price);
+  } else if (activeFilter === "Featured Products") {
+    return [
+      ...data.filter((item) => item.id % 2 === 0),
+      ...data.filter((item) => item.id % 2 !== 0),
+    ];
+  }
+
+  return data;
+};
 
   const addToWishlist = (product) => {
     // getItem // Retrieve data

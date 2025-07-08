@@ -37,41 +37,58 @@ const SearchProducts = () => {
     namkeens: "5",
   };
 
-  useEffect(() => {
-    setLoading(true);
-    setCurrentPage(1);
-    window.scrollTo(0, 0);
+useEffect(() => {
+  setLoading(true);
+  setCurrentPage(1);
+  window.scrollTo(0, 0);
 
-    let mappedCategoryId = categoryMapping[searchKeyword];
-    let url = "product_list?";
+  let mappedCategoryId = categoryMapping[searchKeyword];
+  let url = "product_list?";
 
-    if (mappedCategoryId) {
-      url += `category_id=${mappedCategoryId}`;
-    } else if (categoryId === "all" || !categoryId) {
-      url += "category_id=1,2,4,5";
-    } else {
-      url += `category_id=${categoryId}`;
-    }
+  if (mappedCategoryId) {
+    url += `category_id=${mappedCategoryId}`;
+  } else if (categoryId === "all" || !categoryId) {
+    url += "category_id=1,2,4,5";
+  } else {
+    url += `category_id=${categoryId}`;
+  }
 
-    getAPI(url)
-      .then((response) => {
-        let products = response.data;
+  getAPI(url)
+    .then((response) => {
+      let raw = response.data;
+      let products = [];
 
-        if (!mappedCategoryId && searchKeyword) {
-          products = products.filter((product) =>
-            product.title.toLowerCase().includes(searchKeyword)
-          );
+      if (typeof raw === "string") {
+        try {
+          const end = raw.lastIndexOf("]");
+          const cleaned = raw.slice(0, end + 1);
+          products = JSON.parse(cleaned);
+        } catch (err) {
+          console.error("Parse error:", err);
+          setError("Failed to parse product data.");
+          setData([]);
+          return;
         }
+      } else if (Array.isArray(raw)) {
+        products = raw;
+      }
 
-        setData(Array.isArray(products) ? products : []);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setError("Failed to fetch products.");
-        setLoading(false);
-      });
-  }, [categoryId, searchKeyword]);
+      if (!mappedCategoryId && searchKeyword) {
+        products = products.filter((product) =>
+          product.title.toLowerCase().includes(searchKeyword)
+        );
+      }
+
+      setData(products);
+      setLoading(false);
+    })
+    .catch((error) => {
+      console.log("Fetch error:", error);
+      setError("Failed to fetch products.");
+      setLoading(false);
+    });
+}, [categoryId, searchKeyword]);
+
 
   const addToWishlist = (product) => {
     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
