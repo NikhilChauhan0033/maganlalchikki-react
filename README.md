@@ -3,15 +3,10 @@
 A fully responsive e-commerce web application built using React, designed to deliver a smooth, modern, and fast shopping experience with clean UI components and efficient state handling.
 
 🛠️ Technologies Used
-
 React
-
 HTML
-
 CSS
-
 Bootstrap
-
 JavaScript
 
 🚀 Key Features
